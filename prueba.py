@@ -1,19 +1,20 @@
+from funciones import *
 
-cadena = input("Introduce una cadena de texto: ")
+cadena = input("1. Introduce una cadena de texto: ")
 
-rangoIterable = range(0, int(len(cadena)/2))
-rangocadena = len(cadena) - 1
-esPalindromo = True
+iteraciones = range(len(cadena))
 
-for posicion in rangoIterable:
-    if cadena[posicion] != cadena[rangocadena - posicion]:
-        print("entro")
-        esPalindromo = False
-        break
+Resultado = -1
 
-
-
-if esPalindromo:
-    print("Es palindromo")
+if esPalindromo(cadena):
+    Resultado = 0
 else:
-    print("No es palindromo")
+    for posicion in iteraciones:
+        cadenaSinCaracter = cadena[:posicion] + cadena[posicion + 1:]
+        if esPalindromo(cadenaSinCaracter):
+            Resultado = posicion + 1
+            break
+
+print(Resultado)
+
+cadena = input("2. Introduce una cadena de texto: ")
