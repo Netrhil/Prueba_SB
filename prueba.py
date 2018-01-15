@@ -18,3 +18,24 @@ else:
 print(Resultado)
 
 cadena = input("2. Introduce una cadena de texto: ")
+
+cadena = list(cadena)
+
+esReducible = len(cadena) != len(set(cadena))
+
+while(esReducible):
+
+    cosa = cadena[0]
+
+    coincidencias = coincidenciasChar(cadena, cosa)
+
+    if(coincidencias % 2 == 0):
+        for indice in range(coincidencias):
+            cadena.remove(cosa)
+    if(coincidencias % 2 == 1 ):
+        for indice in range(coincidencias - 1):
+            cadena.remove(cosa)
+
+    esReducible = len(cadena) != len(set(cadena))
+
+print(cadena)
