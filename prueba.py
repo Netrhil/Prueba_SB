@@ -101,3 +101,24 @@ if int(cadena) >= 0 and int(cadena) <= 1000:
                     print( diccionarioPalabras[cadena[0]]["centena"] + " " + diccionarioPalabras[cadena[1]]["decena"] + " y " + diccionarioPalabras[cadena[2]]["unidad"])
     else:
         print("mil")
+
+cadena = input("4. Introduce el string: ")
+
+listaNucleotidosSobrantes = nucletidosSobrantes(cadena)
+largoSubcadena = len(listaNucleotidosSobrantes)
+largostringGen = len(cadena)
+control = True
+print(listaNucleotidosSobrantes)
+
+if largoSubcadena == 0:
+    print("0")
+else:
+    while control:
+        for iteracion in range( (largostringGen - largoSubcadena) + 1 ):
+
+            if contieneSubcadena(cadena[iteracion:iteracion+largoSubcadena], listaNucleotidosSobrantes):
+                print(largoSubcadena)
+                control = False
+                break
+
+        largoSubcadena += 1
